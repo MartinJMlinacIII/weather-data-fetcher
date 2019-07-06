@@ -3,10 +3,12 @@ import Table from 'react-bootstrap/Table'
 import kelvinToFahrenheit from 'kelvin-to-fahrenheit'
 
 const Forecast = (props) => {
+
     var hasData = false
     if (props.forecastData) {
         hasData = true
     }
+
     return (
         <div>
             <h1>{props.city}</h1>
@@ -26,20 +28,7 @@ const Forecast = (props) => {
                                 <td>{kelvinToFahrenheit(day.main.temp)} °F</td>
                                 <td>{day.main.pressure}</td>
                             </tr>
-                        ))
-                    ) : (
-                            <tr></tr>
-                        )}
-                    {/* <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                </tr> */}
+                        ))) : (<tr></tr>)}
                 </tbody>
             </Table>
         </div>

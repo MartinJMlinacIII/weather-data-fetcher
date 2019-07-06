@@ -6,14 +6,6 @@ import Col from 'react-bootstrap/Col';
 
 const ZipcodeForm = (props) => {
     return (
-        // <form onSubmit={props.loadForecast} className="form row">
-        //     <div className="col">
-        //         <input type="text" name="zipcode" className="form-control" placeholder="Enter Zipcode" required/>
-        //     </div>
-        //     <div className="col">
-        //         <button className="btn btn-primary">Get Weather</button>
-        //     </div>
-        // </form>
         <Form onSubmit={props.loadForecast}>
             <Form.Group as={Row} controlId="formZipcode">
                 <Col md="4">

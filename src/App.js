@@ -1,13 +1,24 @@
+//React
 import React from 'react';
 
+// Bootstrap
 import Containter from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+// App Compents
 import ZipcodeForm from './ZipcodeForm';
 import Forecast from './Forecast';
 
 class App extends React.Component {
+  // Ininitialize state
+  state = {
+    city: undefined,
+    list: undefined,
+    error: undefined,
+    isLoaded: false,
+  }
+
   getForecast = async (e) => {
     try {
       e.preventDefault();
@@ -40,13 +51,6 @@ class App extends React.Component {
 
   }
 
-  state = {
-    city: undefined,
-    list: undefined,
-    error: undefined,
-    isLoaded: false,
-  }
-
   render() {
     return (
       <Containter>
@@ -54,12 +58,14 @@ class App extends React.Component {
           <Col md="12">
             <ZipcodeForm loadForecast={this.getForecast} />
           </Col>
+
+          {/* Hide Forecast table until data is loaded */}
           {this.state.isLoaded ? (
             <Col md="12">
               <Forecast city={this.state.city} forecastData={this.state.list} />
             </Col>
-          ) : (<Col md="12"></Col>
-            )}
+          ) : (<Col md="12"></Col>)}
+
         </Row>
       </Containter>
     )

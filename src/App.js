@@ -13,7 +13,7 @@ class App extends React.Component {
       e.preventDefault();
       const appid = '9e8da6d7dc2e655dd86de6f5a5483148'
       const zipcode = e.target.elements.zipcode.value;
-      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode},us&appid=${appid}`);
+      const api_call = await fetch(`https://api.openweathermap.org/data/2.5/forecast?zip=${zipcode.trim()},us&appid=${appid}`);
       const response = await api_call.json();
       if (zipcode) {
         this.setState({
